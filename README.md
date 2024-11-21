@@ -96,4 +96,5 @@ A metodologia foi organizada em quatro etapas principais:
 3. Submissão para revisão entre pares no GitHub.
 
 ---
+![image](https://github.com/user-attachments/assets/52faa2fb-7081-41ac-944b-ef489bd2f14e)
 
