@@ -1,6 +1,7 @@
 # Stellar Clash: Um Jogo de Batalha Espacial com Estruturas de Dados Avançadas
 
-**Autores:** [ANDREIA ELIAS CORRÊA  /  202302523], [JOAO VITOR DE PINA ADORNO DE PAIVA /  202302556],  [MARIA CLARA DUTRA COSTA / 202302568]
+**Autores:** 
+[ANDREIA ELIAS CORRÊA  /  202302523] [JOAO VITOR DE PINA ADORNO DE PAIVA /  202302556],  [MARIA CLARA DUTRA COSTA / 202302568]
 
 **Resumo:**  
 Este trabalho apresenta o desenvolvimento de um jogo de batalha espacial, *Stellar Clash*, temos o objetivo de utilizar conceitos de estruturas de dados avançados, como filas, árvores, grafos e ponteiros. O projeto visa integrar teoria e prática no uso de algoritmos e estruturas de dados no desenvolvimento de um sistema interativo, com foco em desempenho e modularidade. O jogo inclui elementos como organização de ondas de inimigos (filas), mapeamento de campos de batalha (grafos) e gestão de habilidades (árvores).
