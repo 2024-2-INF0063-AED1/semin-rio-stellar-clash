@@ -9,7 +9,7 @@ Este trabalho apresenta o desenvolvimento de um jogo de batalha espacial, *Stell
 
 ---
 
-## Seção I: Introdução
+# Seção I: Introdução
 
 ### Problema
 Desenvolver um sistema que integre conceitos avançados de estruturas de dados em um projeto prático, de forma a demonstrar o impacto dessas técnicas na organização e desempenho de sistemas interativos. O contexto do problema é o desenvolvimento de um jogo de batalha espacial, onde a gestão de inimigos, movimentação em campo e evolução de habilidades exigem estruturas otimizadas e escaláveis.
@@ -53,7 +53,7 @@ Critérios utilizados para avaliação:
 
 ---
 
-## Seção III: Metodologia
+# Seção III: Metodologia
 
 A metodologia foi organizada em quatro etapas principais:
 
