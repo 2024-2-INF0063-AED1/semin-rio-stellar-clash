@@ -8,7 +8,7 @@
 **Resumo:**  
 Este trabalho apresenta o desenvolvimento de um jogo de batalha espacial, *Stellar Clash*, temos o objetivo de utilizar conceitos de estruturas de dados avançados, como filas, árvores, grafos e ponteiros. O projeto visa integrar teoria e prática no uso de algoritmos e estruturas de dados no desenvolvimento de um sistema interativo, com foco em desempenho e modularidade. O jogo inclui elementos como organização de ondas de inimigos (filas), mapeamento de campos de batalha (grafos) e gestão de habilidades (árvores).
 
-**Palavras-chave:** Jogos, estruturas de dados, filas, grafos, árvores, C.
+**Palavras-chave:** Jogos, estruturas de dados, filas, grafos, árvores.
 
 ---
 
@@ -27,7 +27,7 @@ Embora o projeto envolva dados gerados dinamicamente, foram definidos alguns par
 - **Ondas de inimigos:** Geradas aleatoriamente, seguindo padrões pré-estabelecidos.  
 
 ### Métodos
-O projeto utiliza C para manipulação de memória e ponteiros. Métodos aplicados incluem:
+O projeto utiliza pyton para manipulação de memória e ponteiros. Métodos aplicados incluem:
 
 - **Filas:** Organização da ordem de chegada dos inimigos.  
 - **Árvores:** Estruturação e evolução de habilidades do jogador.  
