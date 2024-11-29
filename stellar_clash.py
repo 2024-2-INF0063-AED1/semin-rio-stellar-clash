@@ -15,7 +15,6 @@ pygame.display.set_caption("Jogo Espacial")
 # Definição de cores (apenas para o texto e fundo)
 PRETO = (0, 0, 0)
 BRANCO = (255, 255, 255)
-VERMELHO = (255, 0, 0)
 
 # Caminho da pasta "assets"
 assets_dir = os.path.join(os.path.dirname(__file__), "assets")
@@ -37,7 +36,14 @@ nave_largura, nave_altura = 50, 40
 nave_x = largura // 2 - nave_largura // 2
 nave_y = altura - nave_altura - 10
 velocidade_nave = 5
-vidas = 3  # Adicionando vidas da nave
+vidas = 3  # Vidas da nave
+
+# Configuração para exibir as vidas como naves
+vidas_imagens = []  # Lista para armazenar as posições das naves de vida
+for i in range(vidas):
+    x = largura - (i + 1) * (nave_largura + 10)  # Espaço entre as naves
+    y = 10
+    vidas_imagens.append((x, y))
 
 # Configuração dos projéteis
 projeteis = []
@@ -61,7 +67,7 @@ velocidade_bola_fogo = 5
 # Pontuação
 pontuacao = 0
 
-# Fonte para exibir o placar e vidas
+# Fonte para exibir o placar
 fonte = pygame.font.Font(None, 36)
 
 # Loop principal do jogo
@@ -132,6 +138,7 @@ while jogando:
             and nave_y < bola[1] < nave_y + nave_altura
         ):
             vidas -= 1
+            vidas_imagens.pop()  # Remove uma nave das vidas exibidas
             bola_fogo.remove(bola)  # Remove a bola que colidiu
             if vidas == 0:
                 jogando = False  # Fim do jogo
@@ -154,11 +161,13 @@ while jogando:
     for bola in bola_fogo:
         tela.blit(imagem_bola_fogo, (bola[0], bola[1]))
 
-    # Exibir a pontuação e vidas
+    # Desenhar as vidas como naves no canto superior direito
+    for posicao in vidas_imagens:
+        tela.blit(imagem_nave, posicao)
+
+    # Exibir a pontuação
     texto_pontuacao = fonte.render(f"Pontos: {pontuacao}", True, BRANCO)
-    texto_vidas = fonte.render(f"Vidas: {vidas}", True, VERMELHO)
     tela.blit(texto_pontuacao, (10, 10))
-    tela.blit(texto_vidas, (10, 50))
 
     # Atualizar a tela
     pygame.display.flip()
