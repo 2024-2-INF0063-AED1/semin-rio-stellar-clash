@@ -85,5 +85,6 @@ O projeto é desenvolvido em Python, escolhida por sua simplicidade e vasta bibl
 
 
 ---
-![image](https://github.com/user-attachments/assets/52faa2fb-7081-41ac-944b-ef489bd2f14e)
+![image](https://github.com/user-attachments/assets/7452331b-8b5b-448a-87ff-be2b512720d3)
+
 
