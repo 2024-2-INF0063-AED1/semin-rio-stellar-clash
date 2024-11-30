@@ -2,6 +2,8 @@ import pygame
 import random
 import os
 from time import time
+import networkx as nx
+import matplotlib.pyplot as plt
 
 # Inicializar o Pygame
 pygame.init()
@@ -84,6 +86,35 @@ escudo = Habilidade("Escudo", 500, 15, 15, imagem_escudo)
 
 # Fonte para exibir a pontuação
 fonte = pygame.font.Font(None, 36)
+
+# Criar um grafo direcionado para representar a progressão entre fases
+grafo_fases = nx.DiGraph()
+
+# Adicionando nós
+grafo_fases.add_node("Fase 1")
+grafo_fases.add_node("Fase 2")
+grafo_fases.add_node("Fase 3")
+
+# Adicionar arestas (conexões entre fases)
+grafo_fases.add_edge("Fase 1", "Fase 2")
+grafo_fases.add_edge("Fase 1", "Fase 3")
+grafo_fases.add_edge("Fase 2", "Fase 3")
+
+#Fase incial
+fase_atual = "Fase 1"
+
+# Função para avançar para a próxima fase
+def avancar_fase(fase_atual):
+    proximas = list(grafo_fases.successors(fase_atual))
+    return proximas[0] if proximas else fase_atual
+
+# Exibir a fase na tela
+def exibir_fase(tela, fase_atual, largura):
+    texto_fase = fonte.render(f"Fase: {fase_atual}", True, (255, 255, 255))
+    # Calcular a posição para centralizar o texto no topo da tela
+    texto_largura = texto_fase.get_width()
+    pos_x = (largura - texto_largura) // 2  
+    tela.blit(texto_fase, (pos_x, 10))  
 
 # Loop principal do jogo
 clock = pygame.time.Clock()
@@ -217,7 +248,15 @@ while jogando:
     if escudo.pode_usar(pontuacao):
         tela.blit(escudo.imagem, (habilidade_x + margem * 2 + 50, habilidade_y + margem))
 
-    # Exibir pontuação
+    # Avançar de fase ao atingir uma pontuação de 100 (exemplo)
+    if pontuacao >= 500 and fase_atual == "Fase 1":
+        fase_atual = avancar_fase(fase_atual)
+    else:
+        if pontuacao >= 1000 and fase_atual == "Fase 2":
+            fase_atual = avancar_fase(fase_atual)
+
+    # Exibir pontuação e fase
+    exibir_fase(tela, fase_atual, largura)
     texto_pontuacao = fonte.render(f"Pontos: {pontuacao}", True, BRANCO)
     tela.blit(texto_pontuacao, (10, 10))
 
