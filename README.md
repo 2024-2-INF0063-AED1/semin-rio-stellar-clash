@@ -45,6 +45,50 @@ A avaliação incluirá:
 
 ---
 
+# **Seção II: Fundamentos Teóricos**
+
+## **Interação do Jogador e Controles**
+
+O jogo utiliza um conjunto de teclas para controlar a nave e acessar habilidades, garantindo uma experiência dinâmica e interativa. Abaixo, as funções de cada tecla:  
+
+- **Setas Esquerda e Direita (`←` / `→`)**: Controlam o movimento horizontal da nave, permitindo ao jogador desviar de obstáculos e alinhar disparos.  
+- **Espaço (`Space`)**: Dispara projéteis laser para destruir meteoros e ganhar pontos.  
+- **Tecla `V`**: Ativa a habilidade de **velocidade melhorada**, aumentando temporariamente a agilidade da nave. Disponível ao acumular 100 pontos.  
+- **Tecla `E`**: Ativa o **escudo protetor**, tornando a nave invulnerável a ataques por 15 segundos. Requer 500 pontos para ativação.  
+
+Esses controles foram projetados para oferecer uma jogabilidade intuitiva e adaptável ao ritmo de progresso do jogador.  
+
+## **Mecânicas do Jogo**
+
+### **Filas**  
+A estrutura de **fila** (`deque`) é empregada para gerenciar as bolas de fogo, que representam ameaças dinâmicas no jogo. Essa escolha permite uma execução eficiente e ordenada das ações relacionadas a essas entidades.  
+- **Funcionamento**:  
+  1. As bolas de fogo são adicionadas à fila em intervalos regulares (120 quadros).  
+  2. Movem-se continuamente para baixo, representando seu deslocamento em direção à nave.  
+  3. Quando saem da tela, são removidas do início da fila, mantendo a estrutura atualizada e economizando memória.  
+
+Essa abordagem simula o comportamento natural de um fluxo de inimigos, com inserção e remoção otimizadas.  
+
+### **Árvore de Habilidades**  
+O sistema de habilidades utiliza uma estrutura de **árvore**, onde cada habilidade está conectada a outras que precisam ser desbloqueadas antes. Isso permite uma progressão lógica e estratégica para melhorar a nave.  
+- **Estrutura Planejada**:  
+  - **Raiz**: A habilidade de **velocidade melhorada** é o ponto de partida.  
+  - **Nível 1**: Habilidades defensivas, como o **escudo protetor**.  
+  - **Nível 2**: Habilidades ofensivas avançadas, como **disparos duplos** ou **taxa de disparo aumentada**.  
+
+Cada habilidade exige pontos acumulados, recompensando o desempenho do jogador e promovendo decisões estratégicas.  
+
+### **Grafos no Jogo**  
+Os **grafos** serão utilizados para representar o progresso entre fases ou desafios, com cada nó simbolizando um evento ou fase e as arestas conectando essas etapas.  
+- **Aplicação**:  
+  - Nó inicial: Fase introdutória com meteoros simples.  
+  - Nós intermediários: Desafios mais complexos, como múltiplas bolas de fogo ou meteoros em maior velocidade.  
+  - Nó final: Fase culminante com chefes ou padrões complexos de obstáculos.  
+
+Essa abordagem permite uma progressão não linear, oferecendo ao jogador diferentes trajetórias e experiências ao longo do jogo.  
+
+---
+
 # **Seção III: Metodologia**  
 
 ## **Linguagem e Ferramentas**  
