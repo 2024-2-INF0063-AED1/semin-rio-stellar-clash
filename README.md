@@ -152,6 +152,7 @@ O projeto demonstrou que é possível combinar algoritmos básicos e intermediá
 2. **Utilização do Pygame**: A biblioteca simplificou a implementação de gráficos e eventos, mas requer cuidados para manter a otimização.  
 3. **Desafios Técnicos**: A criação de um grafo eficiente para fases destacou a importância de planejamento e estruturação de dados.  
 
-No futuro, espera-se ampliar o sistema de grafos e adicionar novas mecânicas que aproveitem ainda mais o potencial de Python e Pygame, tornando o jogo mais desafiador e interativo.  
+![WhatsApp Image 2024-11-30 at 00 18 53](https://github.com/user-attachments/assets/7aa6caf7-c207-4b4d-9643-cf43a4b85712)
+
 
 
