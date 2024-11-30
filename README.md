@@ -70,7 +70,13 @@ A estrutura de **fila** (`deque`) é empregada para gerenciar as bolas de fogo, 
 Essa abordagem simula o comportamento natural de um fluxo de inimigos, com inserção e remoção otimizadas.  
 
 ### **Árvore de Habilidades**  
-O sistema de habilidades utiliza uma estrutura de **árvore**, onde cada habilidade está conectada a outras que precisam ser desbloqueadas antes. Isso permite uma progressão lógica e estratégica para melhorar a nave.  
+Árvores são estruturas hierárquicas utilizadas para organizar e representar as habilidades da nave. Cada habilidade pode ser um nó da árvore, onde nós filhos representam habilidades desbloqueadas ou melhoradas.
+
+### **Por que usar árvores?**
+- **Hierarquia de habilidades:** Representar a progressão de habilidades (ex.: nave comum → nave melhorada → nave com escudo ativo).
+- **Modularidade:** Facilitar a adição de novas habilidades, permitindo expansões futuras sem alterar a estrutura básica.
+- **Consulta rápida:** Permitir verificações eficientes sobre o estado de habilidades disponíveis e desbloqueadas.
+
 - **Estrutura Planejada**:  
   - **Raiz**: A habilidade de **velocidade melhorada** é o ponto de partida.  
   - **Nível 1**: Habilidades defensivas, como o **escudo protetor**.  
@@ -79,6 +85,12 @@ O sistema de habilidades utiliza uma estrutura de **árvore**, onde cada habilid
 Cada habilidade exige pontos acumulados, recompensando o desempenho do jogador e promovendo decisões estratégicas.  
 
 ### **Grafos no Jogo**  
+Os grafos serão adicionados no futuro para implementar funcionalidades mais complexas, como rotas de meteoros e padrões de movimento de inimigos.
+
+### **Por que usar grafos?**
+- **Representação de conexões:** Grafos são ideais para modelar relações entre diferentes pontos ou entidades, como rotas de meteoros ou conexões entre fases do jogo.
+- **Flexibilidade:** Permite criar padrões de movimentação variados e interativos.
+
 Os **grafos** serão utilizados para representar o progresso entre fases ou desafios, com cada nó simbolizando um evento ou fase e as arestas conectando essas etapas.  
 - **Aplicação**:  
   - Nó inicial: Fase introdutória com meteoros simples.  
@@ -121,11 +133,6 @@ O projeto é desenvolvido em Python, escolhida por sua simplicidade e vasta bibl
    - Avaliar a fluidez da fila na manipulação de elementos dinâmicos.  
    - Testar o equilíbrio da progressão no sistema de habilidades.  
    - Garantir que o grafo de fases ofereça desafios crescentes e caminhos coerentes.  
-
-## **Visualização da Metodologia**  
-- Gráficos demonstrando como o Pygame gerencia eventos e renderização em tempo real.  
-- Fluxogramas para ilustrar o funcionamento da fila e da árvore de habilidades.  
-- Representação de um grafo típico das fases, com nós e arestas destacando conexões possíveis.  
 
 
 ---
