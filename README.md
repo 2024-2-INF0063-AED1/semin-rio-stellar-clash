@@ -45,6 +45,62 @@ A avaliação incluirá:
 
 ---
 
+# **Seção II: Fundamentos Teóricos**
+
+## **Interação do Jogador e Controles**
+
+O jogo utiliza um conjunto de teclas para controlar a nave e acessar habilidades, garantindo uma experiência dinâmica e interativa. Abaixo, as funções de cada tecla:  
+
+- **Setas Esquerda e Direita (`←` / `→`)**: Controlam o movimento horizontal da nave, permitindo ao jogador desviar de obstáculos e alinhar disparos.  
+- **Espaço (`Space`)**: Dispara projéteis laser para destruir meteoros e ganhar pontos.  
+- **Tecla `V`**: Ativa a habilidade de **velocidade melhorada**, aumentando temporariamente a agilidade da nave. Disponível ao acumular 100 pontos.  
+- **Tecla `E`**: Ativa o **escudo protetor**, tornando a nave invulnerável a ataques por 15 segundos. Requer 500 pontos para ativação.  
+
+Esses controles foram projetados para oferecer uma jogabilidade intuitiva e adaptável ao ritmo de progresso do jogador.  
+
+## **Mecânicas do Jogo**
+
+### **Filas**  
+A estrutura de **fila** (`deque`) é empregada para gerenciar as bolas de fogo, que representam ameaças dinâmicas no jogo. Essa escolha permite uma execução eficiente e ordenada das ações relacionadas a essas entidades.  
+- **Funcionamento**:  
+  1. As bolas de fogo são adicionadas à fila em intervalos regulares (120 quadros).  
+  2. Movem-se continuamente para baixo, representando seu deslocamento em direção à nave.  
+  3. Quando saem da tela, são removidas do início da fila, mantendo a estrutura atualizada e economizando memória.  
+
+Essa abordagem simula o comportamento natural de um fluxo de inimigos, com inserção e remoção otimizadas.  
+
+### **Árvore de Habilidades**  
+Árvores são estruturas hierárquicas utilizadas para organizar e representar as habilidades da nave. Cada habilidade pode ser um nó da árvore, onde nós filhos representam habilidades desbloqueadas ou melhoradas.
+
+### **Por que usar árvores?**
+- **Hierarquia de habilidades:** Representar a progressão de habilidades (ex.: nave comum → nave melhorada → nave com escudo ativo).
+- **Modularidade:** Facilitar a adição de novas habilidades, permitindo expansões futuras sem alterar a estrutura básica.
+- **Consulta rápida:** Permitir verificações eficientes sobre o estado de habilidades disponíveis e desbloqueadas.
+
+- **Estrutura Planejada**:  
+  - **Raiz**: A habilidade de **velocidade melhorada** é o ponto de partida.  
+  - **Nível 1**: Habilidades defensivas, como o **escudo protetor**.  
+  - **Nível 2**: Habilidades ofensivas avançadas, como **disparos duplos** ou **taxa de disparo aumentada**.  
+
+Cada habilidade exige pontos acumulados, recompensando o desempenho do jogador e promovendo decisões estratégicas.  
+
+### **Grafos no Jogo**  
+Os grafos serão adicionados no futuro para implementar funcionalidades mais complexas, como rotas de meteoros e padrões de movimento de inimigos.
+
+### **Por que usar grafos?**
+- **Representação de conexões:** Grafos são ideais para modelar relações entre diferentes pontos ou entidades, como rotas de meteoros ou conexões entre fases do jogo.
+- **Flexibilidade:** Permite criar padrões de movimentação variados e interativos.
+
+Os **grafos** serão utilizados para representar o progresso entre fases ou desafios, com cada nó simbolizando um evento ou fase e as arestas conectando essas etapas.  
+- **Aplicação**:  
+  - Nó inicial: Fase introdutória com meteoros simples.  
+  - Nós intermediários: Desafios mais complexos, como múltiplas bolas de fogo ou meteoros em maior velocidade.  
+  - Nó final: Fase culminante com chefes ou padrões complexos de obstáculos.  
+
+Essa abordagem permite uma progressão não linear, oferecendo ao jogador diferentes trajetórias e experiências ao longo do jogo.  
+
+---
+
 # **Seção III: Metodologia**  
 
 ## **Linguagem e Ferramentas**  
@@ -78,12 +134,25 @@ O projeto é desenvolvido em Python, escolhida por sua simplicidade e vasta bibl
    - Testar o equilíbrio da progressão no sistema de habilidades.  
    - Garantir que o grafo de fases ofereça desafios crescentes e caminhos coerentes.  
 
-## **Visualização da Metodologia**  
-- Gráficos demonstrando como o Pygame gerencia eventos e renderização em tempo real.  
-- Fluxogramas para ilustrar o funcionamento da fila e da árvore de habilidades.  
-- Representação de um grafo típico das fases, com nós e arestas destacando conexões possíveis.  
-
 
 ---
-![image](https://github.com/user-attachments/assets/52faa2fb-7081-41ac-944b-ef489bd2f14e)
+![image](https://github.com/user-attachments/assets/7452331b-8b5b-448a-87ff-be2b512720d3)
+
+---
+# **Seção IV: Resultados e Conclusões**
+
+## **Resultados**  
+- **Jogabilidade**: Foi implementado um sistema funcional que permite ao jogador acumular pontos, desbloquear habilidades e interagir com inimigos. As filas foram eficazes para gerenciar os elementos temporais, e a árvore de habilidades proporcionou progressão estratégica ao jogo.  
+- **Desempenho Técnico**: O jogo manteve um desempenho fluido em testes, com frame rates consistentes e resposta rápida aos comandos do jogador.  
+- **Estrutura de Grafos**: Ainda em desenvolvimento, o uso de grafos promete oferecer uma progressão rica em diversidade de caminhos e desafios, expandindo a rejogabilidade.  
+
+## **Conclusões**  
+O projeto demonstrou que é possível combinar algoritmos básicos e intermediários em Python para criar uma experiência de jogo envolvente. As principais lições aprendidas incluem:  
+1. **Integração de Algoritmos**: O uso de filas, árvores e grafos mostrou-se eficiente na construção de mecânicas robustas.  
+2. **Utilização do Pygame**: A biblioteca simplificou a implementação de gráficos e eventos, mas requer cuidados para manter a otimização.  
+3. **Desafios Técnicos**: A criação de um grafo eficiente para fases destacou a importância de planejamento e estruturação de dados.  
+
+![WhatsApp Image 2024-11-30 at 00 18 53](https://github.com/user-attachments/assets/7aa6caf7-c207-4b4d-9643-cf43a4b85712)
+
+
 
