@@ -6,11 +6,11 @@
 - **MARIA CLARA DUTRA COSTA / 202302568**
 
 **Resumo:**  
-Este trabalho apresenta o desenvolvimento de um jogo de batalha espacial, *Stellar Clash*, temos o objetivo de utilizar conceitos de estruturas de dados avançados, como Listas, filas, árvores e grafos. O projeto visa integrar teoria e prática no uso de algoritmos e estruturas de dados no desenvolvimento de um sistema interativo, com foco em desempenho e modularidade.
-O jogo consiste em um ambiente espacial onde o jogador controla uma nave, enfrentando meteoros e desviando de bolas de fogo enquanto tenta acumular pontos. Esses pontos podem ser usados para desbloquear habilidades , como aumento de velocidade, dano aprimorado e tiros especiais. As fases são interconectadas por um grafo, representando desafios progressivos que aumentam em complexidade.  
+
+Este trabalho apresenta o desenvolvimento de um jogo de batalha espacial, Stellar Clash, que utiliza estruturas de dados avançadas, como listas, filas, árvores e grafos. O projeto integra teoria e prática de algoritmos para criar um sistema interativo, com foco em desempenho e modularidade. O jogo inicia com uma tela de menu onde o jogador escolhe a dificuldade. No ambiente espacial, o jogador controla uma nave, enfrentando meteoros e bolas de fogo, acumulando pontos para desbloquear habilidades como maior velocidade, dano aprimorado e tiros especiais. As fases, conectadas por um grafo, apresentam desafios progressivamente mais complexos. 
 
 
-**Palavras-chave:** Jogos, estruturas de dados, filas, grafos, árvores,Python,Pygame.
+**Palavras-chave:** Jogos, filas, grafos, árvore,Pygame.
 
 ---
 
