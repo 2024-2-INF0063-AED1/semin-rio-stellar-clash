@@ -144,13 +144,16 @@ O projeto demonstrou que é possível combinar algoritmos básicos e intermediá
 3. **Desafios Técnicos**: A criação de um grafo eficiente para fases destacou a importância de planejamento e estruturação de dados.
 
 ![image](https://github.com/user-attachments/assets/3993e3bd-ba22-4468-8378-4f20d5707354)
- 
+imagem da interface do Menu
 
 ![WhatsApp Image 2024-11-30 at 00 18 53](https://github.com/user-attachments/assets/7aa6caf7-c207-4b4d-9643-cf43a4b85712)
-ii
+imagem da interface do jogo
+
 ---
 
 # **Seção V: video demonstrativo**
+
+
 
 ...
 
