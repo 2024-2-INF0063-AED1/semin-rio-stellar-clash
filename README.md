@@ -179,7 +179,9 @@ python main.py
 ## **Referências**
 
 Space Shooter Game Using Python : [https://codewithcurious.com/projects/space-shooter-game-using-python/]
+
 Pygame Tutorial for Beginners - Python Game Development Course: [https://www.youtube.com/watch?v=FfWpgLFMI7w]
+
 Goodrich, M. T. *Estruturas de Dados e Algoritmos em Python*. Wiley, 2020.
 
 ---
