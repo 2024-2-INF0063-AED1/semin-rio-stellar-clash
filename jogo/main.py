@@ -3,6 +3,8 @@ import random
 import os
 from time import time
 from menu import exibir_menu, criar_menu
+import networkx as nx
+import matplotlib.pyplot as plt
 
 # Inicializar o Pygame
 pygame.init()
@@ -16,6 +18,8 @@ pygame.display.set_caption("Jogo Espacial")
 PRETO = (0, 0, 0)
 BRANCO = (255, 255, 255)
 CINZA = (128, 128, 128)
+VERMELHO = (255, 0, 0)
+VERDE = (0, 255, 0)
 
 # Caminho da pasta "assets"
 assets_dir = os.path.join(os.path.dirname(__file__), "assets")
@@ -86,6 +90,75 @@ def iniciar_jogo(nivel):
 
     executar_jogo(velocidade_meteoro, vidas)
 
+#Tela de vitoria
+def tela_ganhou():
+    tela.blit(fundo_jogo, (0, 0))
+    fonte_ganhou = pygame.font.Font(None, 72)
+    texto_ganhou = fonte_ganhou.render("You win!", True, VERDE)
+    texto_continuar = pygame.font.Font(None, 36).render(
+        "Pressione qualquer tecla para voltar ao menu.", True, CINZA
+    )
+
+    # Centralizar os textos na tela
+    tela.blit(
+        texto_ganhou,
+        (largura // 2 - texto_ganhou.get_width() // 2, altura // 2 - texto_ganhou.get_height() // 2),
+    )
+    tela.blit(
+        texto_continuar,
+        (
+            largura // 2 - texto_continuar.get_width() // 2,
+            altura // 2 + texto_ganhou.get_height(),
+        ),
+    )
+    pygame.display.flip()
+
+    # Esperar o jogador pressionar uma tecla
+    aguardando = True
+    while aguardando:
+        for evento in pygame.event.get():
+            if evento.type == pygame.QUIT:
+                pygame.quit()
+                exit()
+            elif evento.type == pygame.KEYDOWN:
+                aguardando = False
+    #Voltando a tela inicial
+    main()
+
+def tela_perdeu():
+    tela.blit(fundo_jogo, (0, 0))
+    fonte_perdeu = pygame.font.Font(None, 72)
+    texto_perdeu = fonte_perdeu.render("Game Over", True, VERMELHO)
+    texto_continuar = pygame.font.Font(None, 36).render(
+        "Pressione qualquer tecla para voltar ao menu.", True, CINZA
+    )
+
+    # Centralizar os textos na tela
+    tela.blit(
+        texto_perdeu,
+        (largura // 2 - texto_perdeu.get_width() // 2, altura // 2 - texto_perdeu.get_height() // 2),
+    )
+    tela.blit(
+        texto_continuar,
+        (
+            largura // 2 - texto_continuar.get_width() // 2,
+            altura // 2 + texto_perdeu.get_height(),
+        ),
+    )
+    pygame.display.flip()
+
+    # Esperar o jogador pressionar uma tecla
+    aguardando = True
+    while aguardando:
+        for evento in pygame.event.get():
+            if evento.type == pygame.QUIT:
+                pygame.quit()
+                exit()
+            elif evento.type == pygame.KEYDOWN:
+                aguardando = False
+    #Voltando a tela inicial
+    main()
+
 # Código principal do jogo
 def executar_jogo(velocidade_meteoro, vidas):
     nave_largura, nave_altura = 50, 40
@@ -116,6 +189,35 @@ def executar_jogo(velocidade_meteoro, vidas):
 
     # Fonte para exibir a pontuação
     fonte = pygame.font.Font(None, 36)
+    
+    # Criar um grafo direcionado para representar a progressão entre fases
+    grafo_fases = nx.DiGraph()
+
+    # Adicionando nós   
+    grafo_fases.add_node("1")
+    grafo_fases.add_node("2")
+    grafo_fases.add_node("3")
+
+    # Adicionar arestas (conexões entre fases)
+    grafo_fases.add_edge("1", "2")
+    grafo_fases.add_edge("1", "3")
+    grafo_fases.add_edge("2", "3")
+
+    #Fase incial
+    fase_atual = "1"
+
+    # Função para avançar para a próxima fase
+    def avancar_fase(fase_atual):
+        proximas = list(grafo_fases.successors(fase_atual))
+        return proximas[0] if proximas else fase_atual
+
+    # Exibir a fase na tela
+    def exibir_fase(tela, fase_atual, largura):
+        texto_fase = fonte.render(f"Fase: {fase_atual}", True, (255, 255, 255))
+        # Calcular a posição para centralizar o texto no topo da tela
+        texto_largura = texto_fase.get_width()
+        pos_x = (largura - texto_largura) // 2  
+        tela.blit(texto_fase, (pos_x, 10))  
 
     # Loop principal do jogo
     clock = pygame.time.Clock()
@@ -206,7 +308,8 @@ def executar_jogo(velocidade_meteoro, vidas):
                 if not escudo.ativa:
                     vidas -= 1
                     if vidas == 0:
-                        jogando = False
+                        tela_perdeu()
+                        return
 
         # Desenhar o fundo
         tela.blit(fundo_jogo, (0, 0))
@@ -244,6 +347,17 @@ def executar_jogo(velocidade_meteoro, vidas):
         # Exibir bolas de fogo
         for bola in bolas_fogo:
             tela.blit(imagem_bola_fogo, (bola[0], bola[1]))
+
+        # Avançar de fase ao atingir uma pontuação de 100 (exemplo)
+        if pontuacao >= 500 and fase_atual == "1":
+            fase_atual = avancar_fase(fase_atual)
+        elif pontuacao >= 1000 and fase_atual == "2":
+            fase_atual = avancar_fase(fase_atual)
+        elif pontuacao >= 1500 and fase_atual == "3":
+            tela_ganhou()
+        
+        #Exibir fase no canto superior no centro
+        exibir_fase(tela, fase_atual, largura)
 
         pygame.display.flip()
         clock.tick(60)

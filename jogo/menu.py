@@ -16,7 +16,7 @@ VERMELHO = (255, 0, 0)
 CINZA = (128, 128, 128)
 
 # Carregar fundo do menu
-menu_bg = pygame.image.load(os.path.join("assets", "menu.png"))
+menu_bg = pygame.image.load(os.path.join(os.path.dirname(__file__), "assets", "menu.png"))
 menu_bg = pygame.transform.scale(menu_bg, (largura, altura))
 
 # Fonte
