@@ -184,11 +184,11 @@ python main.py
 
 ## **Referências**
 
-Space Shooter Game Using Python : [https://codewithcurious.com/projects/space-shooter-game-using-python/]
+- Space Shooter Game Using Python : [https://codewithcurious.com/projects/space-shooter-game-using-python/]
 
-Pygame Tutorial for Beginners - Python Game Development Course: [https://www.youtube.com/watch?v=FfWpgLFMI7w]
+- Pygame Tutorial for Beginners - Python Game Development Course: [https://www.youtube.com/watch?v=FfWpgLFMI7w]
 
-Goodrich, M. T., Tamassia, R., & Goldwasser, M. H. (2014). Data Structures and Algorithms in Python. Wiley.
+- Goodrich, M. T., Tamassia, R., & Goldwasser, M. H. (2014). Data Structures and Algorithms in Python. Wiley.
 
 ---
 
