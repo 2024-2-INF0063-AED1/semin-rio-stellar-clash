@@ -49,6 +49,10 @@ A avaliação incluirá:
 
 ## **Interação do Jogador e Controles**
 
+Antes de iniciar o jogador escolhe em qual dificuldade quer jogar:
+- **Seta pra cima para baixo ( `↑ `/ `↓` )** : A pessoa escolhe em qual nível irá jogar
+- **Botao enter (`enter`) : apertar enter para dificuldade (`Fácil` / `Médio` / `Díficil`)
+
 O jogo utiliza um conjunto de teclas para controlar a nave e acessar habilidades, garantindo uma experiência dinâmica e interativa. Abaixo, as funções de cada tecla:  
 
 - **Setas Esquerda e Direita (`←` / `→`)**: Controlam o movimento horizontal da nave, permitindo ao jogador desviar de obstáculos e alinhar disparos.  
@@ -144,10 +148,10 @@ O projeto demonstrou que é possível combinar algoritmos básicos e intermediá
 3. **Desafios Técnicos**: A criação de um grafo eficiente para fases destacou a importância de planejamento e estruturação de dados.
 
 ![image](https://github.com/user-attachments/assets/3993e3bd-ba22-4468-8378-4f20d5707354)
-imagem da interface do Menu
+                                                            *imagem da interface do Menu*
 
 ![WhatsApp Image 2024-11-30 at 00 18 53](https://github.com/user-attachments/assets/7aa6caf7-c207-4b4d-9643-cf43a4b85712)
-imagem da interface do jogo
+                                                                                            *imagem da interface do jogo*
 
 ---
 
