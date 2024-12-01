@@ -158,7 +158,8 @@ O projeto demonstrou que é possível combinar algoritmos básicos e intermediá
 # **Seção V: video demonstrativo**
 
 
-![Video das funcionalidades do jogo](![spaceclash-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/51869970-ae32-466d-8089-61d7ad8d6768)
+![Video das funcionalidades do jogo](https://github.com/user-attachments/assets/51869970-ae32-466d-8089-61d7ad8d6768)
+
 
 
 ---
