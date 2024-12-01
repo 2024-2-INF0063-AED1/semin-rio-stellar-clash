@@ -145,6 +145,8 @@ O projeto demonstrou que é possível combinar algoritmos básicos e intermediá
 
 ![WhatsApp Image 2024-11-30 at 00 18 53](https://github.com/user-attachments/assets/7aa6caf7-c207-4b4d-9643-cf43a4b85712)
 
+---
+
 # **Seção V: video demonstrativo**
 
 ...
@@ -162,7 +164,7 @@ Certifique-se de atender aos seguintes requisitos antes de executar o jogo:
 
    ```bash
    pip install pygame
-
+   ````
 
 ### **Como inicializa?**
 
