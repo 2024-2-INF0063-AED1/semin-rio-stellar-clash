@@ -77,18 +77,21 @@ def iniciar_jogo(nivel):
     if nivel == "Fácil":
         velocidade_meteoro = 2
         vidas = 5
+        intervalo_bola_fogo = 2.5
     elif nivel == "Médio":
         velocidade_meteoro = 4
         vidas = 3
+        intervalo_bola_fogo = 1.5 
     elif nivel == "Difícil":
         velocidade_meteoro = 6
         vidas = 1
+        intervalo_bola_fogo = 0.8
     else:
         print(f"Nível inválido: {nivel}. Saindo.")
         pygame.quit()
         return
 
-    executar_jogo(velocidade_meteoro, vidas)
+    executar_jogo(velocidade_meteoro, vidas, intervalo_bola_fogo)
 
 #Tela de vitoria
 def tela_ganhou():
@@ -160,7 +163,7 @@ def tela_perdeu():
     main()
 
 # Código principal do jogo
-def executar_jogo(velocidade_meteoro, vidas):
+def executar_jogo(velocidade_meteoro, vidas,intervalo_bola_fogo):
     nave_largura, nave_altura = 50, 40
     nave_x = largura // 2 - nave_largura // 2
     nave_y = altura - nave_altura - 10
@@ -288,7 +291,7 @@ def executar_jogo(velocidade_meteoro, vidas):
                     break
 
         # Gerar novas bolas de fogo
-        if time() - tempo_ultima_bola_fogo > 2:  # Uma bola a cada 2 segundos
+        if time() - tempo_ultima_bola_fogo > intervalo_bola_fogo:
             bolas_fogo.append([random.randint(0, largura - 40), -40])
             tempo_ultima_bola_fogo = time()
 
