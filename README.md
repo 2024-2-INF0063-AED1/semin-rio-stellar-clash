@@ -142,43 +142,17 @@ O projeto é desenvolvido em Python, escolhida por sua simplicidade e vasta bibl
 - **Estrutura de Grafos**: Ainda em desenvolvimento, o uso de grafos promete oferecer uma progressão rica em diversidade de caminhos e desafios, expandindo a rejogabilidade.  
 
 ## **Conclusões**  
+![Video das funcionalidades do jogo](https://github.com/user-attachments/assets/51869970-ae32-466d-8089-61d7ad8d6768)
 O projeto demonstrou que é possível combinar algoritmos básicos e intermediários em Python para criar uma experiência de jogo envolvente. As principais lições aprendidas incluem:  
 1. **Integração de Algoritmos**: O uso de filas, árvores e grafos mostrou-se eficiente na construção de mecânicas robustas.  
 2. **Utilização do Pygame**: A biblioteca simplificou a implementação de gráficos e eventos, mas requer cuidados para manter a otimização.  
 3. **Desafios Técnicos**: A criação de um grafo eficiente para fases destacou a importância de planejamento e estruturação de dados.
 
-![Video das funcionalidades do jogo](https://github.com/user-attachments/assets/51869970-ae32-466d-8089-61d7ad8d6768)
-
 ---
 
 # **Seção V: video demonstrativo**
 
-
 ![spaceclash-ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/294d240f-71c3-4553-adc1-930d43282c65)
-
-
-
-
----
-### **Requisitos para rodar o jogo**
-
-Certifique-se de atender aos seguintes requisitos antes de executar o jogo:
-
-1. **Versão do Python**: Python 3.8 ou superior.
-2. **Dependências**:
-   - Instale as dependências necessárias usando o comando:
-
-   ```bash
-   pip install pygame
-   ````
-
-### **Como inicializa?**
-
-Para rodar o jogo, use o seguinte comando no terminal, a partir do diretório onde o arquivo está salvo:
-
-  ```bash
-python main.py
-````
 
 ---
 
