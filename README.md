@@ -49,9 +49,9 @@ A avaliação incluirá:
 
 ## **Interação do Jogador e Controles**
 
-Antes de iniciar o jogador escolhe em qual dificuldade quer jogar:
+Antes de iniciar o jogador escolhe em qual dificuldade quer jogar no *MENU*:
 - **Seta pra cima para baixo ( `↑ `/ `↓` )** : A pessoa escolhe em qual nível irá jogar
-- **Botao enter (`enter`) : apertar enter para dificuldade (`Fácil` / `Médio` / `Díficil`)
+- **Botao enter (`enter`)** : apertar enter para dificuldade (`Fácil` / `Médio` / `Díficil`)
 
 O jogo utiliza um conjunto de teclas para controlar a nave e acessar habilidades, garantindo uma experiência dinâmica e interativa. Abaixo, as funções de cada tecla:  
 
