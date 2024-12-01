@@ -182,7 +182,7 @@ Space Shooter Game Using Python : [https://codewithcurious.com/projects/space-sh
 
 Pygame Tutorial for Beginners - Python Game Development Course: [https://www.youtube.com/watch?v=FfWpgLFMI7w]
 
-Goodrich, M. T. *Estruturas de Dados e Algoritmos em Python*. Wiley, 2020.
+Goodrich, M. T., Tamassia, R., & Goldwasser, M. H. (2014). Data Structures and Algorithms in Python. Wiley.
 
 ---
 
