@@ -6,8 +6,8 @@
 - **MARIA CLARA DUTRA COSTA / 202302568**
 
 **Resumo:**  
-Este trabalho apresenta o desenvolvimento de um jogo de batalha espacial, *Stellar Clash*, temos o objetivo de utilizar conceitos de estruturas de dados avançados, como filas, árvores, grafos e ponteiros. O projeto visa integrar teoria e prática no uso de algoritmos e estruturas de dados no desenvolvimento de um sistema interativo, com foco em desempenho e modularidade.
-O jogo consiste em um ambiente espacial onde o jogador controla uma nave, enfrentando meteoros e desviando de bolas de fogo enquanto tenta acumular pontos. Esses pontos podem ser usados para desbloquear habilidades em uma árvore evolutiva, como aumento de velocidade, dano aprimorado e tiros especiais. As fases são interconectadas por um grafo, representando desafios progressivos que aumentam em complexidade.  
+Este trabalho apresenta o desenvolvimento de um jogo de batalha espacial, *Stellar Clash*, temos o objetivo de utilizar conceitos de estruturas de dados avançados, como Listas, filas, árvores e grafos. O projeto visa integrar teoria e prática no uso de algoritmos e estruturas de dados no desenvolvimento de um sistema interativo, com foco em desempenho e modularidade.
+O jogo consiste em um ambiente espacial onde o jogador controla uma nave, enfrentando meteoros e desviando de bolas de fogo enquanto tenta acumular pontos. Esses pontos podem ser usados para desbloquear habilidades , como aumento de velocidade, dano aprimorado e tiros especiais. As fases são interconectadas por um grafo, representando desafios progressivos que aumentam em complexidade.  
 
 
 **Palavras-chave:** Jogos, estruturas de dados, filas, grafos, árvores,Python,Pygame.
@@ -18,12 +18,12 @@ O jogo consiste em um ambiente espacial onde o jogador controla uma nave, enfren
 # **Seção I: Introdução**
 
 ## **Problema**  
-Jogos que oferecem desafios progressivos e sistemas de evolução do jogador têm alto potencial de engajamento. No entanto, a criação de mecânicas que combinem progressão, complexidade adaptativa e decisões estratégicas exige ferramentas eficazes e flexíveis. Este projeto apresenta um jogo espacial desenvolvido em Python, utilizando a biblioteca Pygame para a criação de elementos interativos, integrando filas e árvores de habilidades, e ampliando a complexidade com grafos para a estruturação de fases e conexões.  
+Jogos que oferecem desafios progressivos e sistemas de evolução do jogador têm alto potencial de engajamento. No entanto, a criação de mecânicas que combinem progressão, complexidade adaptativa e decisões estratégicas exige ferramentas eficazes e flexíveis. Este projeto apresenta um jogo espacial desenvolvido em Python, utilizando a biblioteca Pygame para a criação de elementos interativos, integrando filas e árvores, e ampliando a complexidade com grafos para a estruturação de fases e conexões.  
 
 ## **Dataset**  
 Os dados são gerados proceduralmente dentro do jogo:  
 - **Filas:** Gerenciam dinamicamente elementos como bolas de fogo, adicionadas com base em eventos temporais.  
-- **Árvores:** Estruturam o sistema de habilidades, onde habilidades dependem de pré-requisitos.  
+- **Árvores:** Estruturam o menu principal do jogo, organizando as opções em uma hierarquia clara e interativa. Cada nó da árvore representa uma opção de menu, como iniciar o jogo em diferentes dificuldades ou sair.
 - **Grafos:** Representam as conexões entre fases, onde cada nó corresponde a uma fase, e as arestas indicam caminhos possíveis.  
 
 ## **Métodos**  
@@ -32,7 +32,7 @@ Os dados são gerados proceduralmente dentro do jogo:
 2. **Filas (deque):**  
    - Gerencia elementos dinâmicos, como bolas de fogo.  
 3. **Árvores:**  
-   - Representam o sistema de habilidades desbloqueáveis.  
+   -  Implementam o menu do jogo, organizando opções como seleção de dificuldade e comandos para iniciar ou sair do jogo.
 4. **Grafos:**  
    - Estruturam as fases, utilizando algoritmos como Busca em Largura (BFS).  
 
@@ -40,7 +40,7 @@ Os dados são gerados proceduralmente dentro do jogo:
 A avaliação incluirá:  
 1. Desempenho da biblioteca Pygame na renderização e manipulação de elementos em tempo real.  
 2. Eficiência da fila no gerenciamento de elementos dinâmicos.  
-3. Progresso do jogador na árvore de habilidades.  
+3. A clareza e navegabilidade do menu hierárquico baseado em árvores.
 4. Transições coerentes e desafiadoras geradas pelo grafo de fases.  
 
 ---
@@ -69,20 +69,15 @@ A estrutura de **fila** (`deque`) é empregada para gerenciar as bolas de fogo, 
 
 Essa abordagem simula o comportamento natural de um fluxo de inimigos, com inserção e remoção otimizadas.  
 
-### **Árvore de Habilidades**  
-Árvores são estruturas hierárquicas utilizadas para organizar e representar as habilidades da nave. Cada habilidade pode ser um nó da árvore, onde nós filhos representam habilidades desbloqueadas ou melhoradas.
+### **Árvores**  
+Árvores são estruturas hierárquicas utilizadas para organizar e representar estrutura o menu principal do jogo, permitindo uma navegação clara e interativa entre as opções. Essa estrutura foi implementada por meio da classe NoHabilidade, que organiza cada opção como um nó na hierarquia do menu.
 
-#### **Por que usar árvores?**
-- **Hierarquia de habilidades:** Representar a progressão de habilidades (ex.: nave comum → nave melhorada → nave com escudo ativo).
-- **Modularidade:** Facilitar a adição de novas habilidades, permitindo expansões futuras sem alterar a estrutura básica.
-- **Consulta rápida:** Permitir verificações eficientes sobre o estado de habilidades disponíveis e desbloqueadas.
+#### *Funcionamento:*
+- O nó raiz representa a entrada principal do menu (Iniciar Jogo).
+- Cada nó filho é uma opção de menu, como "Fácil", "Médio", "Difícil" ou "Sair".
+- O jogador utiliza as teclas direcionais para navegar entre as opções e a tecla "Enter" para selecionar.
 
-- **Estrutura Planejada**:  
-  - **Raiz**: A habilidade de **velocidade melhorada** é o ponto de partida.  
-  - **Nível 1**: Habilidades defensivas, como o **escudo protetor**.  
-  - **Nível 2**: Habilidades ofensivas avançadas, como **disparos duplos** ou **taxa de disparo aumentada**.  
-
-Cada habilidade exige pontos acumulados, recompensando o desempenho do jogador e promovendo decisões estratégicas.  
+  Essa abordagem oferece flexibilidade para expandir ou reorganizar as opções do menu de forma modular.
 
 ### **Grafos no Jogo**  
 Os grafos serão adicionados no futuro para implementar funcionalidades mais complexas, como rotas de meteoros e padrões de movimento de inimigos.
@@ -111,27 +106,23 @@ O projeto é desenvolvido em Python, escolhida por sua simplicidade e vasta bibl
 1. **Planejamento e Estruturação:**  
    - Escolha do Python e Pygame para garantir flexibilidade na implementação.  
    - Estruturas de dados específicas:  
-     - **Filas (deque):** Gerenciar elementos como bolas de fogo, otimizando adição e remoção.  
-     - **Árvores:** Sistema de habilidades com lógica de desbloqueio progressivo.  
+     - **Filas (deque):** Gerenciar elementos como bolas de fogo, otimizando adição e remoção. 
+     - **Árvores:** Árvore hierárquica para organizar o menu principal.  
      - **Grafos:** Conectar fases e aumentar a complexidade adaptativa.  
 
-2. **Desenvolvimento com Pygame:**  
+2. **Desenvolvimento com Pygame:**
+   -Criar a interface gráfica do menu, renderizando opções como "Fácil", "Médio", "Difícil" e "Sair".
    - Criar uma interface gráfica fluida, renderizando a nave, projéteis, meteoros e bolas de fogo.  
    - Lógica de colisão e eventos temporais para movimentação e geração de novos elementos.  
    - Integração do sistema de habilidades com um menu interativo, acessado por atalhos no teclado.  
 
-3. **Modelagem com Estruturas de Dados:**  
-   - **Filas:**  
-     - Gerenciar dinamicamente a posição e número de bolas de fogo no jogo.  
-   - **Árvores:**  
-     - Sistema hierárquico onde habilidades dependem de pontos acumulados e pré-requisitos.  
-   - **Grafos:**  
-     - Definir nós como fases e arestas como conexões possíveis, utilizando algoritmos de busca para determinar transições.  
+4. **Modelagem com Estruturas de Dados:**  
+ No código apresentado, diversas estruturas de dados foram utilizadas para diferentes funcionalidades, aproveitando suas características específicas para atender às necessidades do jogo.
 
-4. **Teste e Ajuste:**  
+5. **Teste e Ajuste:**  
    - Medir o desempenho do Pygame em diferentes resoluções e taxas de quadros.  
    - Avaliar a fluidez da fila na manipulação de elementos dinâmicos.  
-   - Testar o equilíbrio da progressão no sistema de habilidades.  
+   - Testar o equilíbrio da progressão no sistema de Menu.  
    - Garantir que o grafo de fases ofereça desafios crescentes e caminhos coerentes.  
 
 
@@ -142,7 +133,7 @@ O projeto é desenvolvido em Python, escolhida por sua simplicidade e vasta bibl
 # **Seção IV: Resultados e Conclusões**
 
 ## **Resultados**  
-- **Jogabilidade**: Foi implementado um sistema funcional que permite ao jogador acumular pontos, desbloquear habilidades e interagir com inimigos. As filas foram eficazes para gerenciar os elementos temporais, e a árvore de habilidades proporcionou progressão estratégica ao jogo.  
+- **Jogabilidade**: Foi implementado um sistema funcional que permite ao jogador acumular pontos, desbloquear habilidades e interagir com inimigos. As filas foram eficazes para gerenciar os elementos temporais, e a árvore para fazer a dinamica de menu o que proporcionou progressão estratégica ao jogo.  
 - **Desempenho Técnico**: O jogo manteve um desempenho fluido em testes, com frame rates consistentes e resposta rápida aos comandos do jogador.  
 - **Estrutura de Grafos**: Ainda em desenvolvimento, o uso de grafos promete oferecer uma progressão rica em diversidade de caminhos e desafios, expandindo a rejogabilidade.  
 
