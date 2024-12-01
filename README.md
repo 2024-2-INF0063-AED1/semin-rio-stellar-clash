@@ -145,5 +145,46 @@ O projeto demonstrou que é possível combinar algoritmos básicos e intermediá
 
 ![WhatsApp Image 2024-11-30 at 00 18 53](https://github.com/user-attachments/assets/7aa6caf7-c207-4b4d-9643-cf43a4b85712)
 
+# **Seção V: video demonstrativo**
 
+...
+
+
+
+---
+### **Requisitos para rodar o jogo**
+
+Certifique-se de atender aos seguintes requisitos antes de executar o jogo:
+
+1. **Versão do Python**: Python 3.8 ou superior.
+2. **Dependências**:
+   - Instale as dependências necessárias usando o comando:
+
+   ```bash
+   pip install pygame
+
+
+### **Como inicializa?**
+
+Para rodar o jogo, use o seguinte comando no terminal, a partir do diretório onde o arquivo está salvo:
+
+  ```bash
+python main.py
+````
+
+---
+
+## **Referências**
+
+Space Shooter Game Using Python : [https://codewithcurious.com/projects/space-shooter-game-using-python/]
+Pygame Tutorial for Beginners - Python Game Development Course: [https://www.youtube.com/watch?v=FfWpgLFMI7w]
+Goodrich, M. T. *Estruturas de Dados e Algoritmos em Python*. Wiley, 2020.
+
+---
+
+## **Apêndices**
+
+(colocar os codigos mais importantes aqui)...
+
+---
 
