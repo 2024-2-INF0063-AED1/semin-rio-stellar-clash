@@ -72,7 +72,7 @@ Essa abordagem simula o comportamento natural de um fluxo de inimigos, com inser
 ### **Árvore de Habilidades**  
 Árvores são estruturas hierárquicas utilizadas para organizar e representar as habilidades da nave. Cada habilidade pode ser um nó da árvore, onde nós filhos representam habilidades desbloqueadas ou melhoradas.
 
-### **Por que usar árvores?**
+#### **Por que usar árvores?**
 - **Hierarquia de habilidades:** Representar a progressão de habilidades (ex.: nave comum → nave melhorada → nave com escudo ativo).
 - **Modularidade:** Facilitar a adição de novas habilidades, permitindo expansões futuras sem alterar a estrutura básica.
 - **Consulta rápida:** Permitir verificações eficientes sobre o estado de habilidades disponíveis e desbloqueadas.
@@ -87,7 +87,7 @@ Cada habilidade exige pontos acumulados, recompensando o desempenho do jogador e
 ### **Grafos no Jogo**  
 Os grafos serão adicionados no futuro para implementar funcionalidades mais complexas, como rotas de meteoros e padrões de movimento de inimigos.
 
-### **Por que usar grafos?**
+#### **Por que usar grafos?**
 - **Representação de conexões:** Grafos são ideais para modelar relações entre diferentes pontos ou entidades, como rotas de meteoros ou conexões entre fases do jogo.
 - **Flexibilidade:** Permite criar padrões de movimentação variados e interativos.
 
