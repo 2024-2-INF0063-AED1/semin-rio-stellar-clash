@@ -131,7 +131,7 @@ O projeto é desenvolvido em Python, escolhida por sua simplicidade e vasta bibl
 
 
 ---
-![image](https://github.com/user-attachments/assets/7452331b-8b5b-448a-87ff-be2b512720d3)
+![image](https://github.com/user-attachments/assets/945b0733-002d-414f-8f04-ac60c46c6d01)
 
 ---
 # **Seção IV: Resultados e Conclusões**
