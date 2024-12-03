@@ -27,28 +27,27 @@ Este trabalho apresenta o desenvolvimento de um jogo de batalha espacial, Stella
 
 # **Seção II: Fundamentos Teóricos**
 
-## Mecânicas do Jogo
+## Técnicas e Algoritmos Utilizados
 
-### Mecanismos Fundamentais
+### **Técnicas de Game Design**    
+| **Categoria**         | **Descrição**                                                                                   |
+|------------------------|-------------------------------------------------------------------------------------------------                                                                                       |
+| **Loop de Jogo**       | Controle do fluxo contínuo das ações principais, como movimentação, geração de meteoros e bolas de fogo, verificação de colisões e cálculo de pontuações. |
+| **Eventos Dinâmicos**  | - **Geração Aleatória**: Meteoros e bolas de fogo aparecem em posições diferentes, com dificuldade ajustada ao progresso. <br> - **Habilidades Especiais**: Ativação de escudo e "nave acesa" baseada na pontuação. |
 
-| **Mecanismo**   | **Descrição** | **Funcionamento** | **Exemplo no Jogo** |
-|:----------------:|:-------------:|:-----------------:|:-------------------:|
-| **Listas**      | Estruturas sequenciais de dados, onde os elementos podem ser acessados por índice. Útil para representar projéteis, inimigos ou qualquer entidade que precise ser manipulada de forma ordenada. | - Elementos podem ser acessados por índice, facilitando o controle de várias entidades ao mesmo tempo. <br> - Facilita a manipulação e atualização dinâmica de dados. | Controle da fila de ataques programados por turno, onde os inimigos ou projéteis são gerenciados e processados sequencialmente. |
-| **Filas (Deque)** | Gerenciam **bolas de fogo**, que são ameaças dinâmicas no jogo. A fila permite ações ordenadas e eficientes. | - Bolas de fogo adicionadas à fila a cada 120 quadros. <br> - Movem-se continuamente para baixo, simulando ameaça em direção à nave. <br> - Remoção automática do início da fila ao sair da tela, economizando memória. | Controle das bolas de fogo como ameaças que avançam em direção à nave do jogador. |
-| **Árvores**  | Representam a hierarquia do **menu principal**, facilitando a navegação interativa. Implementadas pela classe `NoHabilidade`, organizam as opções como uma árvore. | - **Nó raiz**: "Iniciar Jogo" representa a entrada principal do menu. <br> - **Nós filhos**: Opções como "Fácil", "Médio", "Difícil" ou "Sair". <br> - **Navegação**: Teclas direcionais para navegar e "Enter" para selecionar opções. | Organização das opções no menu do jogo de forma hierárquica, permitindo a navegação eficiente. |
-| **Grafos**   | Gerenciam as **transições de fase** com base na **pontuação** do jogador, permitindo uma progressão dinâmica e desafiante entre as fases. | - **Conexões**: O grafo modela as transições entre as fases, que são acionadas pela pontuação do jogador. <br> - **Flexibilidade**: Permite uma progressão baseada em metas de pontuação, com diferentes caminhos de evolução. | Definição de transições de fase e caminhos para o progresso do jogador com base em pontuação. |
-> *Essa arquitetura utiliza estruturas clássicas de dados para criar um jogo dinâmico e interativo.*
+### **Algoritmos Relevantes**   
+| **Categoria**         | **Descrição**                                                                                   |
+|------------------------|-------------------------------------------------------------------------------------------------                                                                                
+| **Detecção de Colisão**| Lógica para identificar sobreposição de objetos por meio de coordenadas bidimensionais.         |
+| **Geração Aleatória**  | Posicionamento inicial e surgimento dinâmico de meteoros e bolas de fogo, com frequência crescente conforme os níveis avançam. |
+| **Progressão por Grafos** | Uso de grafos para modelar a sequência de fases, permitindo rotas e objetivos flexíveis.       |
+| **Controle de Recursos** | Uso de timers e condições para ativar habilidades especiais, limitadas por pontuação acumulada. |
 
-### **Aplicações do Grafo:**
-
-| **Nó**         | **Descrição**                                                                 |
-|----------------|-----------------------------------------------------------------------------|
-|  Fase 1        | Fase inicial do jogo, onde o jogador começa sua jornada.                    |
-|  Fase 2        | Fase intermediária que é alcançada quando o jogador atinge 500 pontos.       |
-|  Fase 3        | Fase final, que é acessada após o jogador atingir 1000 pontos.                |
-|  Vitória       | Tela de vitória quando o jogador alcança 1500 pontos.                        |
-  
-- Cada fase é associada a um **nó** no grafo, e as **arestas** entre eles determinam quando o jogador pode avançar para a próxima fase. O sistema de pontuação é o critério que desbloqueia o próximo nó (fase) do grafo, permitindo uma progressão de jogo organizada e crescente.
+### **Benchmarks**         
+| **Categoria**         | **Descrição**                                                                                   |
+|------------------------|-----------------------------------------------------------------------------------------------|
+| **Comparação de Desempenho** | Avaliação frente a projetos similares, analisando mecânicas, gráficos e interatividade.     |
+| **Testes de Escalabilidade** | Simulações com aumento progressivo de elementos como meteoros e fases, avaliando o desempenho técnico. |
 
 ---
 
