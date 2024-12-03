@@ -20,8 +20,16 @@ O problema abordado neste seminário envolve a **exploração de algoritmos e t�
 
 ## **Dataset**  
 
-Os dados explorados neste seminário consistem em **dados sintéticos de jogos**, que incluem informações sobre o comportamento de personagens, trajetórias, interações e ações em um ambiente virtual. Estes dados serão utilizados para avaliar como os algoritmos se comportam em diferentes situações e quais estruturas de dados são mais eficientes em termos de tempo e espaço.
+### 1. Árvore do Menu  
+- Estrutura hierárquica com opções e subopções.
+### 2. Grafo das Fases 
+- **Nós**: Representam as fases (`1`, `2`, `3`).  
+- **Arestas**: Representam as transições permitidas entre as fases.
+### Outros Dados  
+- **Pontuação**: Utilizada para determinar o progresso do jogador.  
+- **Configurações de Dificuldade**: Ajustam elementos do jogo, como velocidade de meteoros e vidas iniciais.  
 
+Essas estruturas definem a lógica do jogo e criam uma base para a exploração e análise.
 ## **Métodos**
 
 -Serão revisados os seguintes métodos:
