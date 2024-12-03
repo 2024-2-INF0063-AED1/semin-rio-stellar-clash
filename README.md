@@ -15,56 +15,17 @@ Este trabalho apresenta o desenvolvimento de um jogo de batalha espacial, Stella
 
 # **Seção I: Introdução**
 
-## **Problema**  
-O problema abordado neste seminário envolve a **exploração de algoritmos e técnicas** para desenvolver um sistema eficiente de manipulação de dados em jogos ou aplicativos interativos. O foco está na análise de estruturas de dados e algoritmos para otimizar o desempenho e a experiência do usuário, especialmente em contextos onde múltiplas interações e processos precisam ser gerenciados de maneira eficiente e ordenada. Este problema se aplica a jogos, sistemas de inteligência artificial e plataformas que envolvem grandes volumes de dados.
-
-## **Dataset**  
-
-### 1. Árvore do Menu  
-- Estrutura hierárquica com opções e subopções.
-### 2. Grafo das Fases 
-- **Nós**: Representam as fases (`1`, `2`, `3`).  
-- **Arestas**: Representam as transições permitidas entre as fases.
-### Outros Dados  
-- **Pontuação**: Utilizada para determinar o progresso do jogador.  
-- **Configurações de Dificuldade**: Ajustam elementos do jogo, como velocidade de meteoros e vidas iniciais.  
-
-Essas estruturas definem a lógica do jogo e criam uma base para a exploração e análise.
-## **Métodos**
-
--Serão revisados os seguintes métodos:
-
-- **Python e Pygame**: Linguagem de programação e biblioteca principal para desenvolvimento e manipulação gráfica. 
-- **Algoritmos de Busca (BFS, DFS)**: Utilizados para explorar grafos e árvores, essenciais para determinar caminhos e decisões no jogo.
-- **Algoritmos de Ordenação**: Técnicas de ordenação para melhorar a eficiência de diversas operações no jogo, como filas de tarefas ou controle de inventário.
-- **Algoritmos de Programação Dinâmica**: Técnicas utilizadas para resolver problemas complexos de otimização em jogos, como caminhos mínimos ou alocação de recursos.  
-
-## **Avaliação**  
-A avaliação incluirá:
-
-   1. Desempenho da biblioteca **Pygame** na renderização e manipulação de elementos em tempo real. 
-   2. Eficiência da **fila** no gerenciamento de elementos dinâmicos.  
-   3. A clareza e navegabilidade do **menu hierárquico baseado em árvores**.  
-   4. Transições coerentes e desafiadoras geradas pelo **grafo de fases**.
+   Neste seminário, abordamos o desenvolvimento de um sistema eficiente para manipulação de dados em jogos ou aplicativos interativos, com o objetivo de otimizar o desempenho e melhorar a experiência do usuário. O problema se aplica a contextos como jogos, inteligência artificial e plataformas que lidam com grandes volumes de dados, onde a eficiência e a organização são essenciais.
+   
+   Para investigar o problema, utilizamos duas principais estruturas de dados. A **árvore do menu** representa uma hierarquia de opções e subopções, funcionando como um meio de navegação para o usuário. Já o **grafo das fases** é utilizado para representar as diferentes fases do jogo, onde os **nós** são as fases e as **arestas** indicam as transições entre elas. Essas duas estruturas são fundamentais para a dinâmica do jogo, incluindo a pontuação e as configurações de dificuldade que ajustam variáveis como a velocidade dos meteoros e o número de vidas.
+   
+   A implementação será feita utilizando **Python** e a biblioteca **Pygame** para o desenvolvimento gráfico. Para explorar as estruturas de dados, aplicaremos algoritmos como **BFS (Busca em Largura)** e **DFS (Busca em Profundidade)**, que são essenciais para navegar e tomar decisões dentro do grafo e da árvore. Além disso, utilizaremos **algoritmos de ordenação** e **programação dinâmica** para otimizar o gerenciamento de recursos e encontrar soluções para problemas complexos, como caminhos mínimos ou alocação de recursos no jogo.
+   
+   A avaliação do sistema será feita com base em quatro critérios principais: o desempenho da renderização de elementos em tempo real usando **Pygame**, a eficiência da **fila** no gerenciamento de elementos dinâmicos, a clareza e navegabilidade do **menu hierárquico** e a coerência das transições no **grafo das fases**. Ao final, esperamos demonstrar como o uso eficiente de algoritmos e estruturas de dados pode melhorar a experiência do usuário e a performance do sistema.
 
 ---
 
 # **Seção II: Fundamentos Teóricos**
-
-## **Interação do Jogador e Controles**
-
-Antes de iniciar, o jogador escolhe a dificuldade no **Menu**:  
-- **Setas para cima/baixo** (`↑` / `↓`)*: Navegam entre os níveis de dificuldade.  
-- **Botão Enter (`Enter`)**: Confirma a escolha da dificuldade (**Fácil**, **Médio** ou **Difícil**).  
-
-Durante o jogo, um conjunto de teclas garante o controle da nave e o uso de habilidades, proporcionando uma experiência dinâmica e interativa:  
-
-- **Setas Esquerda e Direita (`←` / `→`)**: Movem a nave horizontalmente, permitindo desviar de obstáculos e alinhar disparos.  
-- **Espaço (`Space`)**: Dispara projéteis laser para destruir meteoros e acumular pontos.  
-- **Tecla `V`**: Ativa a habilidade de **velocidade melhorada**, aumentando temporariamente a agilidade da nave. *(Disponível ao acumular 100 pontos)*.  
-- **Tecla `E`**: Ativa o **escudo protetor**, tornando a nave invulnerável a ataques por 15 segundos. *(Requer 500 pontos para ativação)*.  
-
-Esses controles foram desenvolvidos para oferecer uma jogabilidade intuitiva, adaptável ao ritmo de progressão do jogador e alinhada aos desafios apresentados em cada nível.
 
 ## Mecânicas do Jogo
 
@@ -89,43 +50,6 @@ Esses controles foram desenvolvidos para oferecer uma jogabilidade intuitiva, ad
   
 - Cada fase é associada a um **nó** no grafo, e as **arestas** entre eles determinam quando o jogador pode avançar para a próxima fase. O sistema de pontuação é o critério que desbloqueia o próximo nó (fase) do grafo, permitindo uma progressão de jogo organizada e crescente.
 
-## Técnicas e Algoritmos Utilizados
-
-### **Técnicas de Game Design**
-
-- **Loop de Jogo:**  
-  Controle do fluxo contínuo das ações principais, como:
-  - Movimentação da nave.
-  - Geração de meteoros e bolas de fogo.
-  - Verificação de colisões e cálculo de pontuações.
-
-- **Eventos Dinâmicos:**  
-  - **Geração Aleatória:** Meteoros e bolas de fogo aparecem em posições diferentes a cada ciclo, com dificuldade ajustada conforme o progresso do jogador.
-  - **Habilidades Especiais:** Ativação de escudo e "nave acesa" baseada na pontuação acumulada.
- 
-### **Algoritmos Relevantes**
-
-- **Detecção de Colisão:**  
-  Implementação de lógica para identificar sobreposição de objetos por meio de coordenadas bidimensionais.
-
-- **Geração Aleatória:**  
-  Posicionamento inicial e dinâmica de surgimento de meteoros e bolas de fogo, regulados por uma frequência crescente com o avanço dos níveis.
-
-- **Progressão por Grafos:**  
-  Estrutura de grafos para modelar a sequência de fases, permitindo flexibilidade na definição de rotas e objetivos.
-
-- **Controle de Recursos:**  
-  Uso de timers e condições para ativar habilidades especiais, limitadas por pontuação.
-
-### **Benchmarks**
-
-- **Comparação de Desempenho:**  
-  Avaliação frente a outros projetos educativos similares, observando mecânicas, gráficos e interatividade.
-
-- **Testes de Escalabilidade:**  
-  Simulações com aumento progressivo de meteoros, bolas de fogo e fases, medindo desempenho técnico do jogo.
-
-
 ---
 
 # **Seção III: Metodologia**  
@@ -145,7 +69,9 @@ Esses controles foram desenvolvidos para oferecer uma jogabilidade intuitiva, ad
 
 ## **Conclusões**  
 ![Video das funcionalidades do jogo](https://github.com/user-attachments/assets/51869970-ae32-466d-8089-61d7ad8d6768)
- > *Interface do jogo*
+ > **Interface do jogo** |
+> ***Menu:** ⬆️⬇️: mover nas dificuldades*
+> ***Jogo:** ➡️⬅️: mover a nave | `E`: escudo(500 pts) | `V`: velocidade(100 pts)*
 
 O projeto demonstrou que é possível combinar algoritmos básicos e intermediários em Python para criar uma experiência de jogo envolvente. As principais lições aprendidas incluem:  
 1. **Integração de Algoritmos**: O uso de filas, árvores e grafos mostrou-se eficiente na construção de mecânicas robustas.  
