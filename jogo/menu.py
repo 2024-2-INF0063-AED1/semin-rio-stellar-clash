@@ -58,20 +58,16 @@ def exibir_menu(menu_raiz):
         espacamento_vertical = 70
         altura_total_opcoes = len(opcoes) * espacamento_vertical
         inicio_vertical = (altura - altura_total_opcoes) // 2  # Para centralizar verticalmente
-
-        # Ajustando a posição da opção "Sair"
-        inicio_vertical += 40  # Adiciona um deslocamento maior para a opção "Sair"
+        inicio_vertical += 40  
 
         # Exibir as opções de menu (centradas e com caixas)
         for i, opcao in enumerate(opcoes):
             cor_fonte = BRANCO if i != selecionado else VERMELHO
             texto = font_opcao.render(opcao, True, cor_fonte)
-
             # Desenhar caixa em volta da opção
             largura_texto = texto.get_width() + 20
             altura_texto = texto.get_height() + 10
             pygame.draw.rect(tela, CINZA, (largura // 2 - largura_texto // 2, inicio_vertical + i * espacamento_vertical, largura_texto, altura_texto))
-
             # Exibir o texto da opção dentro da caixa
             tela.blit(texto, (largura // 2 - texto.get_width() // 2, inicio_vertical + i * espacamento_vertical + 5))
 
